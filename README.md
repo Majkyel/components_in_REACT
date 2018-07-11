@@ -4,7 +4,7 @@ I created application with films information. Shows film title, film description
 
 ## Task-14.4
 
-In this project I created simple application in REACT that shows some films titles, descriptions and images. There I share code to small components and I created few components.
+In this project I created simple application in REACT that shows some films titles, descriptions and images. There I share code to small components and I created few small components in REACT.
  
 ## SOURCE 
 While creating the project I used: 
