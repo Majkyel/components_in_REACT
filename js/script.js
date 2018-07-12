@@ -15,28 +15,40 @@ var Movie = React.createClass({
 
 var MovieTitle = React.createClass({
     propTypes: {
-        text: React.PropTypes.string.isRequired
+        text: React.PropTypes.string
     },
     render: function() {
-        return React.createElement('h2', {}, this.props.text)
+        if (this.props.text) {
+            return React.createElement('h2', {}, this.props.text)
+        } else {
+            return React.createElement('p', {}, 'ERROR TITLE!')
+        }
     }
 });
 
 var MovieDesc = React.createClass({
     propTypes: {
-        text: React.PropTypes.string.isRequired
+        text: React.PropTypes.string
     },
     render: function() {
-        return React.createElement('p', {}, this.props.text)
+        if (this.props.text) {
+            return React.createElement('p', {}, this.props.text)
+        } else {
+            return React.createElement('p',{}, 'ERROR DESCRIPTION!')
+        }
     }
 });
 
 var Image = React.createClass({
     propTypes: {
-        src: React.PropTypes.string.isRequired  
+        src: React.PropTypes.string
     },
     render: function() {
-        return React.createElement('img', {src: this.props.src, alt: this.props.alt})
+        if (this.props.src) {
+            return React.createElement('img', {src: this.props.src, alt: this.props.alt})    
+        } else {
+            return React.createElement('p',{}, 'ERROR IMAGE!')
+        }
     }
 });
 
@@ -70,6 +82,10 @@ var movies = [
         title: 'Hulk',
         desc: 'Hulk is about man who is doctor and when is very nervouse he transform in green and very strenght monster',
         image: 'https://daveknickerbocker.files.wordpress.com/2013/05/hulk.jpg'
+    },
+    {
+        id: 6,
+        title: 'Tarzan',
     }
 ];
 
