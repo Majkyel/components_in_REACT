@@ -41,10 +41,11 @@ var MovieDesc = React.createClass({
 
 var Image = React.createClass({
     propTypes: {
-        src: React.PropTypes.string
+        src: React.PropTypes.string,
+        alt: React.PropTypes.string
     },
     render: function() {
-        if (this.props.src) {
+        if (this.props.src&&this.props.alt) {
             return React.createElement('img', {src: this.props.src, alt: this.props.alt})    
         } else {
             return React.createElement('p',{}, 'ERROR IMAGE!')
