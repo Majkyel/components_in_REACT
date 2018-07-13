@@ -18,7 +18,7 @@ var MovieTitle = React.createClass({
         text: React.PropTypes.string
     },
     render: function() {
-        return React.createElement('h2', {className: 'movieTitle'}, this.props.text||'ERROR TITLE!')
+        return React.createElement('h2', {className: 'movieTitle'}, this.props.text || 'ERROR TITLE!')
     }
 });
 
@@ -27,7 +27,7 @@ var MovieDesc = React.createClass({
         text: React.PropTypes.string
     },
     render: function() {
-        return React.createElement('p', {className: 'movieDesc'}, this.props.text||'ERROR DESCRIPTION!')
+        return React.createElement('p', {className: 'movieDesc'}, this.props.text || 'ERROR DESCRIPTION!')
     }
 });
 
@@ -37,7 +37,7 @@ var Image = React.createClass({
         alt: React.PropTypes.string
     },
     render: function() {
-        if ((this.props.src&&this.props.alt)||(this.props.src&&!this.props.alt)) {
+        if ((this.props.src && this.props.alt) || (this.props.src && !this.props.alt)) {
             return React.createElement('img', {src: this.props.src, alt: this.props.alt, className: 'movieImage'})    
         } else {
             return React.createElement('p',{}, 'ERROR IMAGE!')
@@ -87,7 +87,7 @@ var MoviesList = React.createClass({
         list: React.PropTypes.array.isRequired
     },
     render: function() {
-        var moviesElements = movies.map(function(movie) {
+        var moviesElements = this.props.list.map(function(movie) {
             return React.createElement(Movie, {item: movie, key: movie.id})    
         });
         return React.createElement('div', {className: 'movieContainer'},
