@@ -1,0 +1,38 @@
+*{box-sizing: border-box};
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: deepskyblue;
+    .movieContainer {
+        max-width: 1200px;
+        margin: auto;
+        .mainTitle {
+            text-align: center;
+            font-size: 40px;
+            text-transform: uppercase;
+        }
+        .movieObject {
+            background-color: gainsboro;
+            padding: 15px;
+            margin: 7px 0;
+            border: 1px solid black;
+            list-style: none;
+            .movieTitle {
+                text-align: center;
+                font-style: italic;
+                font-size: 30px;
+            }
+            .movieDesc {
+                font-style: italic;
+                text-align: center;
+                font-size: 23px;
+            }
+            .movieImage {
+                width: 100%;
+                border-radius: 10px;
+                border: 2px solid black;
+            }
+        }
+    }
+}
