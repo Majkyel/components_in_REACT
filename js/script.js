@@ -4,7 +4,7 @@ var Movie = React.createClass({
     },
     render: function() {
         return (
-            React.createElement('li', {},
+            React.createElement('li', {className: 'movieObject'},
                 React.createElement(MovieTitle, {text: this.props.item.title}),
                 React.createElement(MovieDesc, {text: this.props.item.desc}),
                 React.createElement(Image, {src: this.props.item.image, alt: this.props.item.title})
@@ -18,11 +18,7 @@ var MovieTitle = React.createClass({
         text: React.PropTypes.string
     },
     render: function() {
-        if (this.props.text) {
-            return React.createElement('h2', {}, this.props.text)
-        } else {
-            return React.createElement('p', {}, 'ERROR TITLE!')
-        }
+        return React.createElement('h2', {className: 'movieTitle'}, this.props.text||'ERROR TITLE!')
     }
 });
 
@@ -31,11 +27,7 @@ var MovieDesc = React.createClass({
         text: React.PropTypes.string
     },
     render: function() {
-        if (this.props.text) {
-            return React.createElement('p', {}, this.props.text)
-        } else {
-            return React.createElement('p',{}, 'ERROR DESCRIPTION!')
-        }
+        return React.createElement('p', {className: 'movieDesc'}, this.props.text||'ERROR DESCRIPTION!')
     }
 });
 
@@ -45,8 +37,8 @@ var Image = React.createClass({
         alt: React.PropTypes.string
     },
     render: function() {
-        if (this.props.src&&this.props.alt) {
-            return React.createElement('img', {src: this.props.src, alt: this.props.alt})    
+        if ((this.props.src&&this.props.alt)||(this.props.src&&!this.props.alt)) {
+            return React.createElement('img', {src: this.props.src, alt: this.props.alt, className: 'movieImage'})    
         } else {
             return React.createElement('p',{}, 'ERROR IMAGE!')
         }
@@ -98,8 +90,8 @@ var MoviesList = React.createClass({
         var moviesElements = movies.map(function(movie) {
             return React.createElement(Movie, {item: movie, key: movie.id})    
         });
-        return React.createElement('div', {},
-            React.createElement('h1', {}, 'Lista filmów'),
+        return React.createElement('div', {className: 'movieContainer'},
+            React.createElement('h1', {className: 'mainTitle'}, 'Lista filmów'),
             React.createElement('ul', {}, moviesElements)
         )
     }
